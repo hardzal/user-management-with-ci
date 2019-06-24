@@ -6,7 +6,7 @@
 
 				<div class="row">
 					<div class="col-lg-8">
-						<?php echo form_open_multipart('user/edit'); ?>
+						<?php echo form_open_multipart('user/editprofile'); ?>
 
 						<div class="form-group row">
 							<label for="email" class="col-sm-2 col-form-label">Email</label>

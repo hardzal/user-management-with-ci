@@ -1,18 +1,14 @@
 # loginsis
+### Spesification
 
-### Spesifcation
+- [x] Login & Registrasi
+- [x] User Access Level
+- [x] Menu Management
+- [x] User Management
+- [x] User Activation
+- [x] Forgot Password Activation
+- [ ] Add more model
 
-###### Login & Registrasi
-
-###### User Access Level
-
-###### Menu Management
-
-###### User Management
-
-###### User Activation
-
-###### Forgot Activation
 
 ### Login
  email: konayuki@katanagatari.com
@@ -23,3 +19,4 @@
 
  email: shichika@katanagari.com
  password: 354123 
+
