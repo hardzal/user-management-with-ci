@@ -107,7 +107,8 @@ class Auth extends CI_Controller
 				$this->session->set_flashdata('message', '<div class="alert alert-success">Congratulation! your account has been created. Please activate your account!</div>');
 				redirect('auth');
 			} else {
-				echo "GAGAL MENDAFTARKAN AKUN!";
+				$this->session->set_flashdata('message', '<div class="alert alert-danger">Failed registered accound. Please contact admin!</div>');
+				redirect('auth');
 			}
 		}
 	}

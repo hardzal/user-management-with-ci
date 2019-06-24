@@ -23,7 +23,7 @@ class User extends CI_Controller
 		$this->load->view('layouts/footer', $data);
 	}
 
-	public function edit()
+	public function editprofile()
 	{
 		$data['user'] = $this->db->get_where('users', ['email' => $this->session->userdata('email')])->row_array();
 
@@ -36,7 +36,7 @@ class User extends CI_Controller
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
 			$this->load->view('layouts/topbar', $data);
-			$this->load->view('users/editpassword', $data);
+			$this->load->view('users/editprofile', $data);
 			$this->load->view('layouts/footer', $data);
 		} else {
 			$name = $this->input->post('name');
@@ -88,7 +88,7 @@ class User extends CI_Controller
 			$this->load->view('layouts/header', $data);
 			$this->load->view('layouts/sidebar', $data);
 			$this->load->view('layouts/topbar', $data);
-			$this->load->view('users/changepassword', $data);
+			$this->load->view('users/change-password', $data);
 			$this->load->view('layouts/footer', $data);
 		} else {
 			$current_password = $this->input->post('current_password');
