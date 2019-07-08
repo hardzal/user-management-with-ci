@@ -27,18 +27,20 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach ($submenus as $submenu) : ?>
+								<?php $no = 1;
+								foreach ($submenus as $submenu) : ?>
 									<tr>
-										<th scope="row"><?= $submenu['id']; ?></th>
+										<th scope="row"><?= $no; ?></th>
 										<td><?= $submenu['menu']; ?></td>
 										<td><?= $submenu['title']; ?></td>
 										<td><?= $submenu['url']; ?></td>
 										<td><?= $submenu['icon']; ?></td>
 										<td><?= $submenu['is_active'] == 0 ? "Tidak aktif" : "Aktif"; ?></td>
 										<td>
-											<a href="<?= base_url('menu/submenu/edit/') . $submenu['id']; ?>" class="badge badge-success mr-2 editDataMenu" data-toggle="modal" data-target="#modalSubMenu" data-id="<?= $submenu['id']; ?>">Edit</a>
+											<a href="<?= base_url('menu/submenu/edit/') . $submenu['id']; ?>" class="badge badge-success mr-2 editDataSubMenu" data-toggle="modal" data-target="#modalSubMenu" data-id="<?= $submenu['id']; ?>">Edit</a>
 											<a href="<?= base_url('menu/submenu/delete/') . $submenu['id']; ?>" class="badge badge-danger" onclick="return confirm('Apakah kamu yakin ingin menghapus menu ini?')">Delete</a> </td>
-									</tr> <?php endforeach; ?>
+									</tr> <?php $no++;
+										endforeach; ?>
 							</tbody>
 						</table>
 					</div>
@@ -57,26 +59,26 @@
 								<span aria-hidden="true">&times;</span>
 							</button>
 						</div>
-						<form method="POST" action="<?= base_url('menu/submenu'); ?>">
+						<form method="POST" action="<?= base_url('menu/submenu/edit'); ?>">
 							<div class="modal-body">
 								<div class='form-group'>
-									<select name='menu_id' class='form-control'>
+									<select id="menu_id" name='menu_id' class='form-control'>
 										<?php foreach ($menus as $menu) : ?>
 											<option value='<?= $menu["id"]; ?>'><?= $menu['menu']; ?></option>
 										<?php endforeach; ?>
 									</select>
 								</div>
 								<div class='form-group'>
-									<input type='text' class='form-control' id='menu' name='submenu' placeholder='Submenu title' />
+									<input type='text' class='form-control' id='menu_title' name='submenu' placeholder='Submenu title' />
 								</div>
 								<div class='form-group'>
-									<input type='text' class='form-control' id='menu' name='url' placeholder='Url Submenu' />
+									<input type='text' class='form-control' id='menu_url' name='url' placeholder='Url Submenu' />
 								</div>
 								<div class='form-group'>
-									<input type='text' class='form-control' id='menu' name='icon' placeholder='Icon Submenu' />
+									<input type='text' class='form-control' id='menu_icon' name='icon' placeholder='Icon Submenu' />
 								</div>
 								<div class='form-group'>
-									<select name='is_active' class='form-control'>
+									<select id="is_active" name='is_active' class='form-control'>
 										<option value='0'>Tidak aktif</option>
 										<option value='1'>Aktif</option>
 									</select>

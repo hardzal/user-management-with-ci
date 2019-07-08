@@ -48,4 +48,31 @@ $(function () {
 		let fileName = $(this).val().split('\\').pop();
 		$(this).next('.custom-file-label').addClass('selected').html(fileName);
 	});
+
+	$('.editDataSubMenu').on('click', function () {
+		$('#judulModalMenu').html("Update SubMenu");
+		$('.submitButton').html("Update SubMenu");
+
+		$('.modal-content form').attr('action', 'http://localhost/latihan/ci/loginsis/menu/submenu/edit');
+
+		const id = $(this).data('id');
+
+		$.ajax({
+			url: 'http://localhost/latihan/ci/loginsis/menu/submenu/edit',
+			data: {
+				id: id
+			},
+			method: 'POST',
+			dataType: 'json',
+			success: function (data) {
+				$('#menu_id').val(data.menu_id);
+				$("#menu_title").val(data.title);
+				$("#menu_icon").val(data.icon);
+				$("#menu_url").val(data.url);
+				$("#is_active").val(data.is_active);
+				$("#id").val(data.id);
+				console.log(data);
+			}
+		});
+	});
 });
